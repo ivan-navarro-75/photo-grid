@@ -15,7 +15,7 @@ import Icon from '@expo/vector-icons/MaterialCommunityIcons'
 import images from './imgs/images'
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 export default class App extends React.Component {
   state = {
@@ -89,6 +89,7 @@ export default class App extends React.Component {
         toValue: 0
       })
     ]).start(() => {
+      this.state.position.y.setValue(height)
       this.setState({ activeImage: null, activeIndex: null })
     })
   }
